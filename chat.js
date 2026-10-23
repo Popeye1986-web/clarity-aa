@@ -2,7 +2,7 @@
    Website ID aus Crisp eintragen (Einstellungen > Website-Einstellungen > Einrichtungsanleitung,
    z. B. "1a2b3c4d-...."). Leer lassen = kein Chat-Button.
    Crisp wird erst geladen, wenn ein Besucher auf "Chat" klickt (keine Cookies vorher). */
-var CLARITY_CRISP_ID = '';
+var CLARITY_CRISP_ID = '27d6bdca-40a2-496f-a8e6-b2db7ba926ec';
 
 
 (function () {
