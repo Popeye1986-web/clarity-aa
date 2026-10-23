@@ -341,18 +341,23 @@ p { margin: 0 0 1em; }
 .fog-blur, .fog-intro-canvas { display: none; }
 html.js:not(.fog-skip) .fog-blur {
   display: block; position: fixed; inset: 0; z-index: 200; pointer-events: none;
-  --r: 0%;
-  background: rgba(226, 224, 219, .4);
-  -webkit-backdrop-filter: blur(36px) saturate(.4) brightness(1.15);
-  backdrop-filter: blur(36px) saturate(.4) brightness(1.15);
-  -webkit-mask-image: radial-gradient(circle at 50% 50%, transparent var(--r), #000 calc(var(--r) + 22%));
-  mask-image: radial-gradient(circle at 50% 50%, transparent var(--r), #000 calc(var(--r) + 22%));
+  background: rgba(228, 226, 221, .22);
+  -webkit-backdrop-filter: blur(16px) saturate(.7);
+  backdrop-filter: blur(16px) saturate(.7);
+  will-change: opacity, backdrop-filter;
+  transition: opacity 3.2s cubic-bezier(.45,0,.2,1) .2s, -webkit-backdrop-filter 3.2s cubic-bezier(.45,0,.2,1), backdrop-filter 3.2s cubic-bezier(.45,0,.2,1);
   animation: fog-failsafe .8s ease 10s forwards;
 }
 html.js:not(.fog-skip) .fog-intro-canvas {
   display: block; position: fixed; inset: 0; width: 100%; height: 100%; z-index: 201; pointer-events: none;
+  will-change: opacity;
+  transition: opacity 2.8s cubic-bezier(.45,0,.2,1);
   animation: fog-failsafe .8s ease 10s forwards;
 }
+html.fog-clearing .fog-intro-canvas { opacity: 0; }
+html.fog-clearing .fog-blur { opacity: 0; -webkit-backdrop-filter: blur(0px) saturate(1); backdrop-filter: blur(0px) saturate(1); }
+html.fog-fast .fog-intro-canvas { transition-duration: .9s; }
+html.fog-fast .fog-blur { transition-duration: 1s; transition-delay: 0s; }
 html.js:not(.fog-skip) body.fog-intro { overflow: hidden; }
 @keyframes fog-failsafe { to { opacity: 0; visibility: hidden; } }
 

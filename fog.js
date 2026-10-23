@@ -85,14 +85,13 @@
     };
   }
 
-  function ease(x) { return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
-
   /* ---------- 1) Intro ---------- */
   function endIntro() {
     if (blurLayer) blurLayer.remove();
     if (introCanvas) introCanvas.remove();
     body.classList.remove('fog-intro');
     root.classList.add('fog-done');
+    if (!location.hash && window.__clarityTop) window.__clarityTop();
     try { sessionStorage.setItem('clarity-fog', '1'); } catch (e) {}
     announceClear();
   }
@@ -100,34 +99,33 @@
   if (!blurLayer || root.classList.contains('fog-skip')) {
     endIntro();
   } else {
-    var fog = introCanvas ? createFog(introCanvas, 0.5) : null;
-    var HOLD = 1700, CLEAR = 4400, start = performance.now(), speed = 1, last = start, elapsed = 0;
-    // Klick, Taste oder Scrollen beschleunigt das Aufklaren
-    ['pointerdown', 'keydown', 'wheel', 'touchstart'].forEach(function (ev) {
-      window.addEventListener(ev, function () { speed = 3; }, { once: true, passive: true });
-    });
+    // Ruhiges Aufklaren: Nebel und Unschärfe blendet der Browser selbst per CSS aus (flüssig, ohne Ruckeln).
+    // Der Nebel selbst wabert dabei weiter langsam.
+    var fog = introCanvas ? createFog(introCanvas, 0.35) : null;
+    var HOLD = 800, done = false, t0 = performance.now();
     if (!fog && introCanvas) introCanvas.style.display = 'none';
-    root.classList.add('fog-running');
-
-    (function frame() {
-      // Zeit pro Bild begrenzen: Ruckler (z. B. Shader-Start) überspringen die Animation nicht
-      var now = performance.now();
-      elapsed += Math.min(50, now - last) * speed; last = now;
-      var p = Math.min(1, Math.max(0, (elapsed - HOLD) / CLEAR));
-      var e = ease(p);
-      // Unschärfe weicht von der Mitte nach aussen
-      blurLayer.style.setProperty('--r', (e * 125).toFixed(1) + '%');
-      blurLayer.style.opacity = String(1 - Math.max(0, (p - .75) / .25));
-      if (fog) {
-        fog.draw({
-          time: now / 1000 + 20, density: 1.15 - e * .15, clear: -0.25 + e * 1.95,
-          mx: -9999, my: -9999, mr: 1, bottom: 0, color: [.91, .90, .88]
-        });
-      } else if (introCanvas) {
-        introCanvas.style.opacity = String(1 - e);
-      }
-      if (p < 1) requestAnimationFrame(frame); else endIntro();
-    })();
+    function finish() {
+      if (done) return; done = true;
+      endIntro();
+    }
+    function drift(now) {
+      if (done || !fog) return;
+      fog.draw({ time: (now - t0) / 1000 * .6 + 20, density: .7, clear: -1,
+                 mx: -9999, my: -9999, mr: 1, bottom: 0, color: [.92, .91, .89] });
+      requestAnimationFrame(drift);
+    }
+    if (fog) drift(t0);
+    setTimeout(function () {
+      root.classList.add('fog-clearing');
+      blurLayer.addEventListener('transitionend', function (ev) {
+        if (ev.propertyName === 'opacity') finish();
+      });
+      setTimeout(finish, 4600); // Sicherheitsnetz
+    }, HOLD);
+    // Klick, Taste oder Scrollen: schneller klar werden
+    ['pointerdown', 'keydown', 'wheel', 'touchstart'].forEach(function (ev) {
+      window.addEventListener(ev, function () { root.classList.add('fog-fast'); }, { once: true, passive: true });
+    });
   }
 
   /* ---------- 2) Dunst im Hero ---------- */

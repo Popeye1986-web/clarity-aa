@@ -1,8 +1,16 @@
 (function () {
   // Beim Aufrufen immer ganz oben starten (Browser merkt sich sonst die alte Scroll-Position)
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  function jumpTop() {
+    // ohne weiches Scrollen, sonst wird der Sprung nach oben unterbrochen
+    var html = document.documentElement, prev = html.style.scrollBehavior;
+    html.style.scrollBehavior = 'auto';
+    window.scrollTo(0, 0);
+    html.style.scrollBehavior = prev;
+  }
+  window.__clarityTop = jumpTop;
   function toTop() {
-    if (!location.hash) { window.scrollTo(0, 0); return; }
+    if (!location.hash) { jumpTop(); return; }
     // Kommt man über einen Link wie index.html#kontakt, springt die Seite dorthin;
     // danach wird der Anker entfernt, damit ein Neuladen wieder oben beginnt
     setTimeout(function () {
