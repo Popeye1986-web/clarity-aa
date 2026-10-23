@@ -4,20 +4,8 @@
    Crisp wird erst geladen, wenn ein Besucher auf "Chat" klickt (keine Cookies vorher). */
 var CLARITY_CRISP_ID = '';
 
-/* WhatsApp-Nummer für den Eintrag im Kontaktbereich (international, ohne +) */
-var CLARITY_WHATSAPP = '41767111221';
 
 (function () {
-  // WhatsApp als zusätzliche Kontaktmöglichkeit im Kontaktbereich
-  var list = document.querySelector('.contact-list');
-  if (list && CLARITY_WHATSAPP) {
-    var row = document.createElement('div');
-    row.innerHTML = '<dt>WhatsApp</dt><dd><a target="_blank" rel="noopener" href="https://wa.me/' +
-      CLARITY_WHATSAPP + '?text=' + encodeURIComponent('Grüezi Clarity A&A, ich habe eine Frage.') +
-      '">+41 76 711 12 21</a></dd>';
-    list.insertBefore(row, list.children[1] || null);
-  }
-
   var id = (CLARITY_CRISP_ID || '').trim();
   if (!id) return;
 

@@ -13,7 +13,7 @@ Reine statische Seite (HTML, CSS, etwas JavaScript), kein Build-Schritt nötig. 
 | `styles.css` | Gestaltung (Nachtblau, Weiss, Eisblau) |
 | `script.js` | Menü, Animationen, Kontaktformular |
 | `fog.js` | Nebel-Intro und Dunst im Hero (WebGL) |
-| `chat.js` | Live-Chat (Crisp) und WhatsApp-Link; Crisp Website ID oben in der Datei eintragen |
+| `chat.js` | Live-Chat (Crisp); Website ID oben in der Datei eintragen |
 | `kontakt.php` | Versand des Kontaktformulars an info@clarity-aa.ch (läuft nur auf Hostpoint, nicht auf Vercel) |
 | `.htaccess` | HTTPS-Weiterleitung, Caching und Sicherheit auf Hostpoint |
 | `assets/` | Logo, Favicon und Schriften |
