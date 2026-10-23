@@ -34,7 +34,7 @@
     ' float d=length((px-uRes*.5)/length(uRes))*2.;',
     ' a*=smoothstep(uClear-.22,uClear+.08,d+(f-.5)*.45);',
     // Dunst am unteren Rand verdichten
-    ' float y=px.y/uRes.y;a*=mix(1.,smoothstep(1.2,-.05,y)*1.4,uBottom);',
+    ' float y=px.y/uRes.y;a*=mix(1.,smoothstep(1.0,0.,y)*1.3,uBottom);',
     // Mausspur wischt den Nebel weg
     ' float md=length(px-uMouse);a*=mix(.15,1.,smoothstep(uMouseR*.25,uMouseR,md+(f-.5)*uMouseR*.5));',
     ' a=clamp(a,0.,1.);gl_FragColor=vec4(uColor*a,a);}'
@@ -148,7 +148,7 @@
         m.x += (m.tx - m.x) * .08; m.y += (m.ty - m.y) * .08;
         fade = Math.min(1, fade + .006);
         mist.draw({
-          time: (now - t0) / 1000, density: .62 * fade, clear: -1,
+          time: (now - t0) / 1000, density: .4 * fade, clear: -1,
           mx: m.x, my: m.y, mr: 260, bottom: 1, color: [.80, .79, .76]
         });
         requestAnimationFrame(loop);

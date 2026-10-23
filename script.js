@@ -1,4 +1,30 @@
 (function () {
+  // Beim Aufrufen immer ganz oben starten (Browser merkt sich sonst die alte Scroll-Position)
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  function toTop() {
+    if (!location.hash) { window.scrollTo(0, 0); return; }
+    // Kommt man über einen Link wie index.html#kontakt, springt die Seite dorthin;
+    // danach wird der Anker entfernt, damit ein Neuladen wieder oben beginnt
+    setTimeout(function () {
+      try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {}
+    }, 500);
+  }
+  toTop();
+  window.addEventListener('load', toTop);
+  window.addEventListener('pageshow', toTop);
+  // Links innerhalb der Seite scrollen weich, ohne #Anker in der Adresse zu hinterlassen,
+  // damit ein Neuladen wieder ganz oben beginnt
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (ev) {
+      var id = a.getAttribute('href').slice(1);
+      var target = id === 'top' ? document.body : document.getElementById(id);
+      if (!target) return;
+      ev.preventDefault();
+      if (id === 'top') window.scrollTo({ top: 0, behavior: 'smooth' });
+      else target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
   var header = document.querySelector('.site-header');
   var toggle = document.querySelector('.nav-toggle');
   var body = document.body;
