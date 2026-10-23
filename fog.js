@@ -29,12 +29,12 @@
     ' vec2 px=gl_FragCoord.xy;vec2 uv=px/uRes.y;float t=uTime;',
     ' vec2 q=vec2(fbm(uv*1.4+vec2(t*.035,t*.01)),fbm(uv*1.4+vec2(5.2,1.3)-t*.02));',
     ' float f=fbm(uv*2.2+q*1.7+vec2(-t*.05,t*.012));',
-    ' float a=uDensity*smoothstep(.15,.85,f*.95+q.x*.35);',
+    ' float a=uDensity*smoothstep(.04,.68,f*.95+q.x*.35);',
     // Aufreissen von der Mitte aus, mit unruhiger Kante
     ' float d=length((px-uRes*.5)/length(uRes))*2.;',
     ' a*=smoothstep(uClear-.22,uClear+.08,d+(f-.5)*.45);',
     // Dunst am unteren Rand verdichten
-    ' float y=px.y/uRes.y;a*=mix(1.,smoothstep(.95,.05,y)*1.25,uBottom);',
+    ' float y=px.y/uRes.y;a*=mix(1.,smoothstep(1.2,-.05,y)*1.4,uBottom);',
     // Mausspur wischt den Nebel weg
     ' float md=length(px-uMouse);a*=mix(.15,1.,smoothstep(uMouseR*.25,uMouseR,md+(f-.5)*uMouseR*.5));',
     ' a=clamp(a,0.,1.);gl_FragColor=vec4(uColor*a,a);}'
@@ -101,7 +101,7 @@
     endIntro();
   } else {
     var fog = introCanvas ? createFog(introCanvas, 0.5) : null;
-    var HOLD = 900, CLEAR = 3200, start = performance.now(), speed = 1, last = start, elapsed = 0;
+    var HOLD = 1700, CLEAR = 4400, start = performance.now(), speed = 1, last = start, elapsed = 0;
     // Klick, Taste oder Scrollen beschleunigt das Aufklaren
     ['pointerdown', 'keydown', 'wheel', 'touchstart'].forEach(function (ev) {
       window.addEventListener(ev, function () { speed = 3; }, { once: true, passive: true });
@@ -120,7 +120,7 @@
       blurLayer.style.opacity = String(1 - Math.max(0, (p - .75) / .25));
       if (fog) {
         fog.draw({
-          time: now / 1000 + 20, density: 1 - e * .2, clear: -0.2 + e * 1.9,
+          time: now / 1000 + 20, density: 1.15 - e * .15, clear: -0.25 + e * 1.95,
           mx: -9999, my: -9999, mr: 1, bottom: 0, color: [.91, .90, .88]
         });
       } else if (introCanvas) {
@@ -146,10 +146,10 @@
       function loop(now) {
         if (!visible) { running = false; return; }
         m.x += (m.tx - m.x) * .08; m.y += (m.ty - m.y) * .08;
-        fade = Math.min(1, fade + .01);
+        fade = Math.min(1, fade + .006);
         mist.draw({
-          time: (now - t0) / 1000, density: .34 * fade, clear: -1,
-          mx: m.x, my: m.y, mr: 220, bottom: 1, color: [.80, .79, .76]
+          time: (now - t0) / 1000, density: .62 * fade, clear: -1,
+          mx: m.x, my: m.y, mr: 260, bottom: 1, color: [.80, .79, .76]
         });
         requestAnimationFrame(loop);
       }
