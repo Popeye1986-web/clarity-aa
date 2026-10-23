@@ -110,8 +110,8 @@
     }
     function drift(now) {
       if (done || !fog) return;
-      fog.draw({ time: (now - t0) / 1000 * .6 + 20, density: .7, clear: -1,
-                 mx: -9999, my: -9999, mr: 1, bottom: 0, color: [.80, .90, .88] });
+      fog.draw({ time: (now - t0) / 1000 * .6 + 20, density: .62, clear: -1,
+                 mx: -9999, my: -9999, mr: 1, bottom: 0, color: [.93, .94, .95] });
       requestAnimationFrame(drift);
     }
     if (fog) drift(t0);

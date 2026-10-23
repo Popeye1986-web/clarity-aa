@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Datenschutz – Clarity A&amp;A GmbH</title>
   <meta name="robots" content="noindex">
+  <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <script>
     (function(){if('scrollRestoration' in history)history.scrollRestoration='manual';if(location.hash)return;
@@ -13,29 +14,33 @@
       ['wheel','touchstart','keydown','pointerdown','mousedown'].forEach(function(e){addEventListener(e,function(){user=true;},{passive:true,capture:true});});
       addEventListener('scroll',top,{passive:true});addEventListener('DOMContentLoaded',top);addEventListener('load',top);addEventListener('pageshow',top);top();var iv=setInterval(function(){if(user||Date.now()>until)clearInterval(iv);else top();},120);})();
   </script>
-  <link rel="stylesheet" href="styles.css?v=11">
+  <link rel="stylesheet" href="styles.css?v=12">
 </head>
 <body>
 
-<header class="site-header">
-  <div class="header-bar">
-    <a href="index.html" class="brand" aria-label="Clarity A&amp;A GmbH – zur Startseite">
-      <img src="assets/logo-light.png" alt="Clarity A&amp;A GmbH" class="brand-light" width="900" height="269">
-      <img src="assets/logo-dark.png" alt="" class="brand-dark" width="900" height="269" aria-hidden="true">
-    </a>
-    <nav id="nav" class="nav">
-      <a href="index.html#leistungen">Leistungen</a>
-      <a href="index.html#ueber-uns">Über uns</a>
-      <a href="index.html#ablauf">Ablauf</a>
-      <a href="index.html#kontakt" class="nav-cta">Erstgespräch</a>
-    </nav>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menü öffnen"><span></span><span></span></button>
+<aside class="rail">
+  <a href="index.html" class="rail-brand" aria-label="Clarity A&amp;A GmbH – zur Startseite">
+    <img src="assets/logo-dark.png" alt="Clarity A&amp;A GmbH" width="900" height="269">
+  </a>
+  <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menü öffnen"><span></span><span></span></button>
+  <nav id="nav" class="rail-nav" aria-label="Inhalt">
+    <a href="index.html">Übersicht</a>
+    <a href="index.html#leistungen">Leistungen</a>
+    <a href="index.html#kunden">Für wen</a>
+    <a href="index.html#ablauf">Ablauf</a>
+    <a href="index.html#grundsaetze">Grundsätze</a>
+    <a href="index.html#kontakt">Kontakt</a>
+  </nav>
+  <div class="rail-contact">
+    <a href="mailto:info@clarity-aa.ch" class="rail-mail">info@clarity-aa.ch</a>
+    <p>Ruedi-Walter-Strasse 5<br>8050 Zürich</p>
+    <a href="index.html#kontakt" class="btn btn-primary btn-block">Erstgespräch vereinbaren</a>
   </div>
-</header>
+</aside>
 
-<main>
+<main class="content">
   <section class="page-hero">
-    <div class="wrap">
+    <div>
       <h1>Datenschutzerklärung</h1>
     </div>
   </section>
@@ -71,20 +76,14 @@
       <p><em>Stand: Oktober 2026</em></p>
     </div>
   </section>
-</main>
-
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <img src="assets/logo-light.png" alt="Clarity A&amp;A GmbH" class="footer-logo" width="900" height="269" loading="lazy">
-    <nav class="footer-nav">
-      <a href="index.html">Startseite</a>
-      <a href="index.html#kontakt">Kontakt</a>
+  <footer class="site-footer">
+    <p>© <span id="year">2026</span> Clarity A&amp;A GmbH, Zürich</p>
+    <nav>
       <a href="impressum.html">Impressum</a>
       <a href="datenschutz.html">Datenschutz</a>
     </nav>
-    <p class="copyright">© <span id="year">2026</span> Clarity A&amp;A GmbH, Zürich</p>
-  </div>
-</footer>
-<script src="script.js?v=11" defer></script>
+  </footer>
+</main>
+<script src="script.js?v=12" defer></script>
 </body>
 </html>

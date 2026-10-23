@@ -33,16 +33,8 @@
     });
   });
 
-  var header = document.querySelector('.site-header');
   var toggle = document.querySelector('.nav-toggle');
   var body = document.body;
-
-  // Leiste beim Scrollen hell machen (Unterseiten: ab Ende des dunklen Kopfbereichs)
-  function onScroll() {
-    if (header) header.classList.toggle('scrolled', window.scrollY > 60);
-  }
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
 
   // Mobiles Menü
   if (toggle) {
@@ -51,59 +43,58 @@
       toggle.setAttribute('aria-expanded', open);
       toggle.setAttribute('aria-label', open ? 'Menü schliessen' : 'Menü öffnen');
     });
-    document.querySelectorAll('.nav a').forEach(function (a) {
+    document.querySelectorAll('.rail-nav a, .nav a').forEach(function (a) {
       a.addEventListener('click', function () {
         body.classList.remove('nav-open');
         toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Menü öffnen');
       });
     });
   }
 
-  // Abschluss-Karte: Punkte nacheinander abhaken, sobald der Nebel weg ist
-  var ledger = document.querySelector('.ledger');
-  if (ledger) {
-    var rows = ledger.querySelectorAll('.ledger-list li');
-    var bar = ledger.querySelector('.bar span');
-    var badge = ledger.querySelector('.ledger-badge');
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var finish = function () { ledger.classList.add('done'); if (badge) badge.textContent = 'Erledigt'; };
-    var startLedger = function () {
-      if (reduce) {
-        rows.forEach(function (r) { r.classList.add('on'); });
-        bar.style.width = '100%'; finish(); return;
-      }
-      rows.forEach(function (r, i) {
-        setTimeout(function () {
-          r.classList.add('on');
-          bar.style.width = ((i + 1) / rows.length * 100) + '%';
-          if (i === rows.length - 1) setTimeout(finish, 450);
-        }, 250 + i * 480);
-      });
+  // Seitenleiste: aktuellen Abschnitt markieren
+  var navLinks = document.querySelectorAll('.rail-nav a[data-sec]');
+  var sections = document.querySelectorAll('[data-section]');
+  if (navLinks.length && sections.length) {
+    var mark = function () {
+      var line = window.innerHeight * 0.35, current = sections[0].getAttribute('data-section');
+      sections.forEach(function (s) { if (s.getBoundingClientRect().top <= line) current = s.getAttribute('data-section'); });
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) current = sections[sections.length - 1].getAttribute('data-section');
+      navLinks.forEach(function (a) { a.classList.toggle('active', a.getAttribute('data-sec') === current); });
     };
-    if (window.__clarityClear) startLedger();
-    else window.addEventListener('clarity:clear', startLedger, { once: true });
+    var ticking = false;
+    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(function () { ticking = false; mark(); }); } }, { passive: true });
+    window.addEventListener('resize', mark);
+    mark();
   }
 
-  // Leistungen: scharf ist, was in der Bildmitte steht (Fokus wie bei einer Kamera)
-  var items = document.querySelectorAll('.focus-list li');
-  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (items.length && !still) {
-    var ticking = false;
-    var update = function () {
-      ticking = false;
-      var mid = window.innerHeight * 0.5, range = window.innerHeight * 0.42;
-      items.forEach(function (li) {
-        var r = li.getBoundingClientRect();
-        var d = Math.abs(r.top + r.height / 2 - mid) / range;
-        var f = Math.max(0, Math.min(1, 1 - d));
-        f = f * f * (3 - 2 * f); // weich auslaufen
-        li.style.setProperty('--f', f.toFixed(3));
+  // Leistungen: Register (links wählen, rechts Details)
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.register-index [role="tab"]'));
+  if (tabs.length) {
+    var select = function (tab, focus) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        var p = document.getElementById(t.getAttribute('aria-controls'));
+        if (!p) return;
+        if (on) { p.hidden = false; p.classList.remove('enter'); void p.offsetWidth; p.classList.add('enter'); }
+        else p.hidden = true;
       });
+      if (focus) tab.focus();
     };
-    var onScrollFocus = function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
-    window.addEventListener('scroll', onScrollFocus, { passive: true });
-    window.addEventListener('resize', onScrollFocus);
-    update();
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { select(t, false); });
+      t.addEventListener('keydown', function (ev) {
+        var k = ev.key, n = null;
+        if (k === 'ArrowDown' || k === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
+        else if (k === 'ArrowUp' || k === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
+        else if (k === 'Home') n = tabs[0];
+        else if (k === 'End') n = tabs[tabs.length - 1];
+        if (n) { ev.preventDefault(); select(n, true); }
+      });
+    });
+    select(tabs[0], false);
   }
 
   // Jahr im Footer
