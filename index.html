@@ -16,9 +16,10 @@
   <script>
     (function(){var d=document.documentElement;d.classList.add('js');
       if('scrollRestoration' in history)history.scrollRestoration='manual';
+      if(!location.hash){var d0=document.documentElement;addEventListener('DOMContentLoaded',function(){d0.style.scrollBehavior='auto';scrollTo(0,0);d0.style.scrollBehavior='';});}
       try{if(sessionStorage.getItem('clarity-fog')||matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('fog-skip');}catch(e){}})();
   </script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body class="fog-intro">
 
@@ -253,7 +254,7 @@
   </div>
 </footer>
 
-<script src="fog.js" defer></script>
-<script src="script.js" defer></script>
+<script src="fog.js?v=7" defer></script>
+<script src="script.js?v=7" defer></script>
 </body>
 </html>
