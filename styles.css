@@ -194,7 +194,7 @@ p { margin: 0 0 1em; }
 .chips { list-style: none; margin: 26px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .chips li { font-size: 14px; padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(184,159,111,.4); color: var(--gold-soft); }
 
-.tile-wide { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 28px; }
+.tile-wide { grid-column: span 2; flex-direction: row; align-items: center; gap: 28px; }
 .tile-wide h3 { margin-top: 0; }
 .tile-wide > div { flex: 1; }
 .tile-wide p { max-width: 46em; }
@@ -295,6 +295,7 @@ p { margin: 0 0 1em; }
   .ledger { justify-self: start; transform: none; }
   .bento { grid-template-columns: 1fr 1fr; }
   .tile-feature { grid-column: 1 / -1; grid-row: auto; }
+  .tile-property, .tile-wide { grid-column: 1 / -1; }
   .tile-feature h3 { padding-top: 48px; }
   .about-grid, .contact { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr 1fr; }
@@ -328,6 +329,7 @@ p { margin: 0 0 1em; }
   .ledger { padding: 20px; }
   .ledger-list li { font-size: 14px; }
   .bento, .values, .steps, .field-row { grid-template-columns: 1fr; }
+  .tile-wide, .tile-property { grid-column: auto; }
   .tile, .tile-feature { padding: 26px; }
   .tile-wide { flex-direction: column; align-items: flex-start; }
   .section-tint { margin: 0; border-radius: 0; }
