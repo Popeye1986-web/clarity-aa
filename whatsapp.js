@@ -102,13 +102,11 @@ var CLARITY_WHATSAPP = '';
       bubble('Der WhatsApp-Chat ist gerade nicht verfügbar. Schreiben Sie uns bitte an info@clarity-aa.ch.', 'in');
       return;
     }
-    var w = window.open(waUrl(msg), '_blank', 'noopener');
-    var info = bubble('Ihre Nachricht ist bereit. WhatsApp öffnet sich, bitte dort auf Senden tippen.', 'in');
-    if (!w) {
-      var a = document.createElement('a');
-      a.href = waUrl(msg); a.target = '_blank'; a.rel = 'noopener'; a.className = 'wa-fallback';
-      a.textContent = 'WhatsApp öffnen';
-      info.appendChild(document.createElement('br')); info.appendChild(a);
-    }
+    window.open(waUrl(msg), '_blank', 'noopener');
+    var info = bubble('Danke! WhatsApp öffnet sich mit Ihrer Nachricht, bitte dort noch auf Senden tippen.', 'in');
+    var a = document.createElement('a');
+    a.href = waUrl(msg); a.target = '_blank'; a.rel = 'noopener'; a.className = 'wa-fallback';
+    a.textContent = 'Falls nicht: WhatsApp hier öffnen';
+    info.appendChild(document.createElement('br')); info.appendChild(a);
   });
 })();
