@@ -25,7 +25,7 @@ Reine statische Seite (HTML, CSS, etwas JavaScript), kein Build-Schritt nötig. 
 
 ## Vor dem Livegang ergänzen
 
-- Adresse, Geschäftsführung, UID- und MWST-Nummer in `impressum.html` und `datenschutz.html` (gelb markierte Platzhalter).
+- Falls die Firma mehrwertsteuerpflichtig wird: MWST-Nummer im Impressum ergänzen.
 - Die Absenderadresse `website@clarity-aa.ch` in `kontakt.php` bei Bedarf anpassen.
 
 ## Vorschau auf Vercel
