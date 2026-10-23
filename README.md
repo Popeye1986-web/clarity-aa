@@ -12,6 +12,7 @@ Reine statische Seite (HTML, CSS, etwas JavaScript), kein Build-Schritt nötig. 
 | `impressum.html`, `datenschutz.html` | Rechtliches |
 | `styles.css` | Gestaltung (Farben aus dem Logo: Anthrazit `#3a3a3a`, Gold `#b89f6f`) |
 | `script.js` | Menü, Animationen, Kontaktformular |
+| `fog.js` | Nebel-Intro und Dunst im Hero (WebGL) |
 | `kontakt.php` | Versand des Kontaktformulars an info@clarity-aa.ch (läuft nur auf Hostpoint, nicht auf Vercel) |
 | `.htaccess` | HTTPS-Weiterleitung, Caching und Sicherheit auf Hostpoint |
 | `assets/` | Logo, Favicon und Schriften |
