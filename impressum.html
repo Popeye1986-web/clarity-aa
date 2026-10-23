@@ -6,8 +6,14 @@
   <title>Impressum – Clarity A&amp;A GmbH</title>
   <meta name="robots" content="noindex">
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <script>if('scrollRestoration' in history)history.scrollRestoration='manual';if(!location.hash){var d0=document.documentElement;addEventListener('DOMContentLoaded',function(){d0.style.scrollBehavior='auto';scrollTo(0,0);d0.style.scrollBehavior='';});}</script>
-  <link rel="stylesheet" href="styles.css?v=7">
+  <script>
+    (function(){if('scrollRestoration' in history)history.scrollRestoration='manual';if(location.hash)return;
+      var d=document.documentElement,user=false,until=Date.now()+9000;
+      function top(){if(user||Date.now()>until)return;if(window.scrollY||window.scrollX){var b=d.style.scrollBehavior;d.style.scrollBehavior='auto';window.scrollTo(0,0);d.style.scrollBehavior=b;}}
+      ['wheel','touchstart','keydown','pointerdown','mousedown'].forEach(function(e){addEventListener(e,function(){user=true;},{passive:true,capture:true});});
+      addEventListener('scroll',top,{passive:true});addEventListener('DOMContentLoaded',top);addEventListener('load',top);addEventListener('pageshow',top);top();var iv=setInterval(function(){if(user||Date.now()>until)clearInterval(iv);else top();},120);})();
+  </script>
+  <link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body>
 
@@ -75,6 +81,6 @@
     <p class="copyright">© <span id="year">2026</span> Clarity A&amp;A GmbH, Zürich</p>
   </div>
 </footer>
-<script src="script.js?v=7" defer></script>
+<script src="script.js?v=9" defer></script>
 </body>
 </html>

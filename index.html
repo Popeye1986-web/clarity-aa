@@ -14,12 +14,16 @@
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/instrument-sans-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
   <script>
+    /* Beim Betreten immer ganz oben: bis zur ersten eigenen Eingabe wird jede Verschiebung zurückgesetzt */
+    (function(){if('scrollRestoration' in history)history.scrollRestoration='manual';if(location.hash)return;
+      var d=document.documentElement,user=false,until=Date.now()+9000;
+      function top(){if(user||Date.now()>until)return;if(window.scrollY||window.scrollX){var b=d.style.scrollBehavior;d.style.scrollBehavior='auto';window.scrollTo(0,0);d.style.scrollBehavior=b;}}
+      ['wheel','touchstart','keydown','pointerdown','mousedown'].forEach(function(e){addEventListener(e,function(){user=true;},{passive:true,capture:true});});
+      addEventListener('scroll',top,{passive:true});addEventListener('DOMContentLoaded',top);addEventListener('load',top);addEventListener('pageshow',top);top();var iv=setInterval(function(){if(user||Date.now()>until)clearInterval(iv);else top();},120);})();
     (function(){var d=document.documentElement;d.classList.add('js');
-      if('scrollRestoration' in history)history.scrollRestoration='manual';
-      if(!location.hash){var d0=document.documentElement;addEventListener('DOMContentLoaded',function(){d0.style.scrollBehavior='auto';scrollTo(0,0);d0.style.scrollBehavior='';});}
       try{if(sessionStorage.getItem('clarity-fog')||matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('fog-skip');}catch(e){}})();
   </script>
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body class="fog-intro">
 
@@ -254,7 +258,7 @@
   </div>
 </footer>
 
-<script src="fog.js?v=7" defer></script>
-<script src="script.js?v=7" defer></script>
+<script src="fog.js?v=9" defer></script>
+<script src="script.js?v=9" defer></script>
 </body>
 </html>

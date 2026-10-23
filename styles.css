@@ -358,7 +358,6 @@ html.fog-clearing .fog-intro-canvas { opacity: 0; }
 html.fog-clearing .fog-blur { opacity: 0; -webkit-backdrop-filter: blur(0px) saturate(1); backdrop-filter: blur(0px) saturate(1); }
 html.fog-fast .fog-intro-canvas { transition-duration: .9s; }
 html.fog-fast .fog-blur { transition-duration: 1s; transition-delay: 0s; }
-html.js:not(.fog-skip) body.fog-intro { overflow: hidden; }
 @keyframes fog-failsafe { to { opacity: 0; visibility: hidden; } }
 
 .fog-hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
