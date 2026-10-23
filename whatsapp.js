@@ -1,7 +1,7 @@
 /* Clarity A&A – WhatsApp-Chat auf der Website
    Nummer im internationalen Format ohne +, Leerzeichen oder führende 0 eintragen,
    z. B. "41791234567" für 079 123 45 67. */
-var CLARITY_WHATSAPP = '';
+var CLARITY_WHATSAPP = '41767111221';
 
 (function () {
   var number = (CLARITY_WHATSAPP || '').replace(/\D/g, '');
