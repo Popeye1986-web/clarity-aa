@@ -43,7 +43,7 @@
       toggle.setAttribute('aria-expanded', open);
       toggle.setAttribute('aria-label', open ? 'Menü schliessen' : 'Menü öffnen');
     });
-    document.querySelectorAll('.rail-nav a, .nav a').forEach(function (a) {
+    document.querySelectorAll('.nav a').forEach(function (a) {
       a.addEventListener('click', function () {
         body.classList.remove('nav-open');
         toggle.setAttribute('aria-expanded', 'false');
@@ -52,50 +52,50 @@
     });
   }
 
-  // Seitenleiste: aktuellen Abschnitt markieren
-  var navLinks = document.querySelectorAll('.rail-nav a[data-sec]');
-  var sections = document.querySelectorAll('[data-section]');
-  if (navLinks.length && sections.length) {
-    var mark = function () {
-      var line = window.innerHeight * 0.35, current = sections[0].getAttribute('data-section');
-      sections.forEach(function (s) { if (s.getBoundingClientRect().top <= line) current = s.getAttribute('data-section'); });
-      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) current = sections[sections.length - 1].getAttribute('data-section');
-      navLinks.forEach(function (a) { a.classList.toggle('active', a.getAttribute('data-sec') === current); });
+  // Abschluss-Karte: Punkte nacheinander abhaken, sobald der Nebel weg ist
+  var ledger = document.querySelector('.ledger');
+  if (ledger) {
+    var rows = ledger.querySelectorAll('.ledger-list li');
+    var bar = ledger.querySelector('.bar span');
+    var pct = ledger.querySelector('.pct');
+    var badge = ledger.querySelector('.ledger-badge');
+    var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var finish = function () { ledger.classList.add('done'); if (badge) badge.textContent = 'Erledigt'; };
+    var setPct = function (to) {
+      if (!pct) return;
+      var from = parseInt(pct.textContent, 10) || 0, t0 = performance.now();
+      (function step(now) {
+        var k = Math.min(1, (now - t0) / 450);
+        pct.textContent = Math.round(from + (to - from) * k);
+        if (k < 1) requestAnimationFrame(step);
+      })(t0);
     };
-    var ticking = false;
-    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(function () { ticking = false; mark(); }); } }, { passive: true });
-    window.addEventListener('resize', mark);
-    mark();
+    var startLedger = function () {
+      if (calm) {
+        rows.forEach(function (r) { r.classList.add('on'); });
+        bar.style.width = '100%'; if (pct) pct.textContent = '100'; finish(); return;
+      }
+      rows.forEach(function (r, i) {
+        setTimeout(function () {
+          r.classList.add('on');
+          var v = Math.round((i + 1) / rows.length * 100);
+          bar.style.width = v + '%'; setPct(v);
+          if (i === rows.length - 1) setTimeout(finish, 450);
+        }, 900 + i * 520);
+      });
+    };
+    if (window.__clarityClear) startLedger();
+    else window.addEventListener('clarity:clear', startLedger, { once: true });
   }
 
-  // Leistungen: Register (links wählen, rechts Details)
-  var tabs = Array.prototype.slice.call(document.querySelectorAll('.register-index [role="tab"]'));
-  if (tabs.length) {
-    var select = function (tab, focus) {
-      tabs.forEach(function (t) {
-        var on = t === tab;
-        t.setAttribute('aria-selected', on ? 'true' : 'false');
-        t.tabIndex = on ? 0 : -1;
-        var p = document.getElementById(t.getAttribute('aria-controls'));
-        if (!p) return;
-        if (on) { p.hidden = false; p.classList.remove('enter'); void p.offsetWidth; p.classList.add('enter'); }
-        else p.hidden = true;
-      });
-      if (focus) tab.focus();
-    };
-    tabs.forEach(function (t, i) {
-      t.addEventListener('click', function () { select(t, false); });
-      t.addEventListener('keydown', function (ev) {
-        var k = ev.key, n = null;
-        if (k === 'ArrowDown' || k === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
-        else if (k === 'ArrowUp' || k === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
-        else if (k === 'Home') n = tabs[0];
-        else if (k === 'End') n = tabs[tabs.length - 1];
-        if (n) { ev.preventDefault(); select(n, true); }
-      });
+  // Leistungskarten: sanfter Lichtkegel folgt der Maus
+  document.querySelectorAll('.card').forEach(function (card) {
+    card.addEventListener('pointermove', function (ev) {
+      var r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (ev.clientX - r.left) + 'px');
+      card.style.setProperty('--my', (ev.clientY - r.top) + 'px');
     });
-    select(tabs[0], false);
-  }
+  });
 
   // Jahr im Footer
   var y = document.getElementById('year');

@@ -14,33 +14,28 @@
       ['wheel','touchstart','keydown','pointerdown','mousedown'].forEach(function(e){addEventListener(e,function(){user=true;},{passive:true,capture:true});});
       addEventListener('scroll',top,{passive:true});addEventListener('DOMContentLoaded',top);addEventListener('load',top);addEventListener('pageshow',top);top();var iv=setInterval(function(){if(user||Date.now()>until)clearInterval(iv);else top();},120);})();
   </script>
-  <link rel="stylesheet" href="styles.css?v=12">
+  <link rel="stylesheet" href="styles.css?v=13">
 </head>
 <body>
 
-<aside class="rail">
-  <a href="index.html" class="rail-brand" aria-label="Clarity A&amp;A GmbH – zur Startseite">
-    <img src="assets/logo-dark.png" alt="Clarity A&amp;A GmbH" width="900" height="269">
-  </a>
-  <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menü öffnen"><span></span><span></span></button>
-  <nav id="nav" class="rail-nav" aria-label="Inhalt">
-    <a href="index.html">Übersicht</a>
-    <a href="index.html#leistungen">Leistungen</a>
-    <a href="index.html#kunden">Für wen</a>
-    <a href="index.html#ablauf">Ablauf</a>
-    <a href="index.html#grundsaetze">Grundsätze</a>
-    <a href="index.html#kontakt">Kontakt</a>
-  </nav>
-  <div class="rail-contact">
-    <a href="mailto:info@clarity-aa.ch" class="rail-mail">info@clarity-aa.ch</a>
-    <p>Ruedi-Walter-Strasse 5<br>8050 Zürich</p>
-    <a href="index.html#kontakt" class="btn btn-primary btn-block">Erstgespräch vereinbaren</a>
+<header class="site-header">
+  <div class="header-bar">
+    <a href="index.html" class="brand" aria-label="Clarity A&amp;A GmbH – zur Startseite">
+      <img src="assets/logo-light.png" alt="Clarity A&amp;A GmbH" width="900" height="269">
+    </a>
+    <nav id="nav" class="nav">
+      <a href="index.html#leistungen">Leistungen</a>
+      <a href="index.html#digital">Arbeitsweise</a>
+      <a href="index.html#ablauf">Ablauf</a>
+      <a href="index.html#kontakt" class="nav-cta">Erstgespräch</a>
+    </nav>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menü öffnen"><span></span><span></span></button>
   </div>
-</aside>
+</header>
 
-<main class="content">
+<main>
   <section class="page-hero">
-    <div>
+    <div class="wrap">
       <h1>Impressum</h1>
     </div>
   </section>
@@ -72,14 +67,20 @@
       <p>Texte, Logo und Gestaltung dieser Website gehören der Clarity A&amp;A GmbH. Eine Verwendung bedarf der vorgängigen schriftlichen Zustimmung.</p>
     </div>
   </section>
-  <footer class="site-footer">
-    <p>© <span id="year">2026</span> Clarity A&amp;A GmbH, Zürich</p>
-    <nav>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <img src="assets/logo-light.png" alt="Clarity A&amp;A GmbH" class="footer-logo" width="900" height="269" loading="lazy">
+    <nav class="footer-nav">
+      <a href="index.html">Startseite</a>
+      <a href="index.html#kontakt">Kontakt</a>
       <a href="impressum.html">Impressum</a>
       <a href="datenschutz.html">Datenschutz</a>
     </nav>
-  </footer>
-</main>
-<script src="script.js?v=12" defer></script>
+    <p class="copyright">© <span id="year">2026</span> Clarity A&amp;A GmbH, Zürich</p>
+  </div>
+</footer>
+<script src="script.js?v=13" defer></script>
 </body>
 </html>

@@ -110,8 +110,8 @@
     }
     function drift(now) {
       if (done || !fog) return;
-      fog.draw({ time: (now - t0) / 1000 * .6 + 20, density: .62, clear: -1,
-                 mx: -9999, my: -9999, mr: 1, bottom: 0, color: [.93, .94, .95] });
+      fog.draw({ time: (now - t0) / 1000 * .6 + 20, density: .72, clear: -1,
+                 mx: -9999, my: -9999, mr: 1, bottom: 0, color: [.84, .88, .93] });
       requestAnimationFrame(drift);
     }
     if (fog) drift(t0);
@@ -146,8 +146,8 @@
         m.x += (m.tx - m.x) * .08; m.y += (m.ty - m.y) * .08;
         fade = Math.min(1, fade + .006);
         mist.draw({
-          time: (now - t0) / 1000, density: .4 * fade, clear: -1,
-          mx: m.x, my: m.y, mr: 260, bottom: 1, color: [.60, .78, .76]
+          time: (now - t0) / 1000, density: .32 * fade, clear: -1,
+          mx: m.x, my: m.y, mr: 260, bottom: 1, color: [.62, .70, .82]
         });
         requestAnimationFrame(loop);
       }

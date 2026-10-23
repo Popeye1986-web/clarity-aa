@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Clarity A&amp;A GmbH – Treuhand, Steuern &amp; Buchhaltung in Zürich</title>
-  <meta name="description" content="Clarity A&amp;A GmbH in Zürich: Treuhand, Steuererklärungen, Buchhaltung, Liegenschaftsbuchhaltung, Beratung, Firmengründung und Liquidation.">
-  <meta name="theme-color" content="#f5f6f7">
+  <meta name="description" content="Clarity A&amp;A GmbH in Zürich: Treuhand, Steuererklärungen, Buchhaltung, Liegenschaftsbuchhaltung, Beratung, Firmengründung und Liquidation. Persönlich betreut, digital organisiert.">
+  <meta name="theme-color" content="#070b12">
   <meta property="og:title" content="Clarity A&amp;A GmbH – Treuhand in Zürich">
-  <meta property="og:description" content="Treuhand, Steuern und Buchhaltung in Zürich. Persönlich, präzise und digital.">
+  <meta property="og:description" content="Aus Nebel wird Klarheit: Treuhand, Steuern und Buchhaltung in Zürich.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/logo-dark.png">
+  <meta property="og:image" content="assets/logo-light.png">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
@@ -23,259 +23,248 @@
     (function(){var d=document.documentElement;d.classList.add('js');
       try{if(sessionStorage.getItem('clarity-fog')||matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('fog-skip');}catch(e){}})();
   </script>
-  <link rel="stylesheet" href="styles.css?v=12">
+  <link rel="stylesheet" href="styles.css?v=13">
 </head>
 <body class="fog-intro">
 
+<!-- Nebel-Intro -->
 <div class="fog-blur" aria-hidden="true"></div>
 <canvas class="fog-intro-canvas" aria-hidden="true"></canvas>
 
-<!-- Seitenleiste: Marke, Inhaltsverzeichnis, Kontakt -->
-<aside class="rail">
-  <a href="#top" class="rail-brand" aria-label="Clarity A&amp;A GmbH – zur Startseite">
-    <img src="assets/logo-dark.png" alt="Clarity A&amp;A GmbH" width="900" height="269">
-  </a>
-  <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menü öffnen"><span></span><span></span></button>
-  <nav id="nav" class="rail-nav" aria-label="Inhalt">
-    <a href="#top" data-sec="top">Übersicht</a>
-    <a href="#leistungen" data-sec="leistungen">Leistungen</a>
-    <a href="#kunden" data-sec="kunden">Für wen</a>
-    <a href="#ablauf" data-sec="ablauf">Ablauf</a>
-    <a href="#grundsaetze" data-sec="grundsaetze">Grundsätze</a>
-    <a href="#kontakt" data-sec="kontakt">Kontakt</a>
-  </nav>
-  <div class="rail-contact">
-    <a href="mailto:info@clarity-aa.ch" class="rail-mail">info@clarity-aa.ch</a>
-    <p>Ruedi-Walter-Strasse 5<br>8050 Zürich</p>
-    <a href="#kontakt" class="btn btn-primary btn-block">Erstgespräch vereinbaren</a>
+<header class="site-header">
+  <div class="header-bar">
+    <a href="#top" class="brand" aria-label="Clarity A&amp;A GmbH – zur Startseite">
+      <img src="assets/logo-light.png" alt="Clarity A&amp;A GmbH" width="900" height="269">
+    </a>
+    <nav id="nav" class="nav">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#digital">Arbeitsweise</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#kontakt" class="nav-cta">Erstgespräch</a>
+    </nav>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menü öffnen"><span></span><span></span></button>
   </div>
-</aside>
+</header>
 
-<main id="top" class="content">
+<main id="top">
 
-  <!-- ÜBERSICHT -->
-  <section class="hero" data-section="top">
-    <div class="hero-main">
-      <h1>Klarheit in Steuern, Buchhaltung und&nbsp;Treuhand.</h1>
-      <p class="lead">Wir betreuen KMU, Selbständige, Privatpersonen und Liegenschaftseigentümer in Zürich. Persönlich, präzise und mit digitalen Abläufen, die Ihnen Zeit sparen.</p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-grid-lines" aria-hidden="true"></div>
+    <canvas class="fog-hero-canvas" aria-hidden="true"></canvas>
+
+    <div class="wrap hero-inner">
+      <p class="pill"><span class="pill-dot"></span>Treuhand in Zürich, persönlich und digital</p>
+      <h1>Aus Nebel wird <span class="grad">Klarheit.</span></h1>
+      <p class="lead">Steuern, Buchhaltung und Treuhand für KMU, Selbständige, Privatpersonen und Liegenschaftseigentümer. Präzise geführt, verständlich erklärt.</p>
       <div class="hero-actions">
-        <a href="#kontakt" class="btn btn-primary">Kostenloses Erstgespräch</a>
-        <a href="#leistungen" class="btn btn-quiet">Leistungen ansehen</a>
+        <a href="#kontakt" class="btn btn-light">Kostenloses Erstgespräch</a>
+        <a href="#leistungen" class="btn btn-glass">Leistungen ansehen</a>
+      </div>
+
+      <!-- Abschluss-Karte als moderne Oberfläche -->
+      <div class="ledger" aria-label="Beispiel: Ablauf eines Jahresabschlusses">
+        <div class="ledger-bar">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="ledger-tab">Jahresabschluss 2026</span>
+          <span class="ledger-badge">In Arbeit</span>
+        </div>
+        <div class="ledger-body">
+          <ul class="ledger-list">
+            <li><span class="tick"></span><span class="li-text">Belege erfasst</span><span class="li-val">312</span></li>
+            <li><span class="tick"></span><span class="li-text">Bankkonten abgestimmt</span><span class="li-val">3 / 3</span></li>
+            <li><span class="tick"></span><span class="li-text">Mehrwertsteuer Q4 abgerechnet</span><span class="li-val">fristgerecht</span></li>
+            <li><span class="tick"></span><span class="li-text">Bilanz und Erfolgsrechnung</span><span class="li-val">geprüft</span></li>
+            <li><span class="tick"></span><span class="li-text">Steuererklärung eingereicht</span><span class="li-val">Kanton ZH</span></li>
+          </ul>
+          <div class="ledger-side">
+            <p class="side-label">Fortschritt</p>
+            <p class="side-value"><span class="pct">0</span>&nbsp;%</p>
+            <div class="bar"><span></span></div>
+            <p class="ledger-done">Abschluss bereit</p>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <dl class="facts">
-      <div><dt>Sitz</dt><dd>Zürich, Schweiz</dd></div>
+  <!-- VERTRAUEN -->
+  <section class="trust">
+    <dl class="wrap trust-row">
+      <div><dt>Sitz</dt><dd>Zürich</dd></div>
       <div><dt>Handelsregister</dt><dd>CHE-373.085.703</dd></div>
       <div><dt>Antwortzeit</dt><dd>innert 1 Arbeitstag</dd></div>
-      <div><dt>Datenhaltung</dt><dd>ausschliesslich in der Schweiz</dd></div>
+      <div><dt>Datenhaltung</dt><dd>in der Schweiz</dd></div>
     </dl>
   </section>
 
-  <!-- LEISTUNGEN: Register mit Detailansicht -->
-  <section class="block" id="leistungen" data-section="leistungen">
-    <header class="block-head">
-      <h2>Leistungen</h2>
-      <p>Wählen Sie einen Bereich, um zu sehen, was wir für Sie übernehmen.</p>
-    </header>
-
-    <div class="register">
-      <div class="register-index" role="tablist" aria-label="Leistungen">
-        <button role="tab" id="t-steuern" aria-controls="p-steuern" aria-selected="true">Steuern</button>
-        <button role="tab" id="t-buchhaltung" aria-controls="p-buchhaltung" aria-selected="false" tabindex="-1">Buchhaltung</button>
-        <button role="tab" id="t-liegenschaften" aria-controls="p-liegenschaften" aria-selected="false" tabindex="-1">Liegenschaftsbuchhaltung</button>
-        <button role="tab" id="t-treuhand" aria-controls="p-treuhand" aria-selected="false" tabindex="-1">Treuhand</button>
-        <button role="tab" id="t-beratung" aria-controls="p-beratung" aria-selected="false" tabindex="-1">Beratung</button>
-        <button role="tab" id="t-gruendung" aria-controls="p-gruendung" aria-selected="false" tabindex="-1">Firmengründung</button>
-        <button role="tab" id="t-liquidation" aria-controls="p-liquidation" aria-selected="false" tabindex="-1">Liquidation</button>
+  <!-- LEISTUNGEN -->
+  <section class="section" id="leistungen">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Alles, was Ihre Finanzen brauchen</h2>
+        <p>Sieben Fachbereiche, ein Ansprechpartner, der Ihre Situation kennt.</p>
       </div>
 
-      <div class="register-panels">
-        <article class="panel" role="tabpanel" id="p-steuern" aria-labelledby="t-steuern">
+      <div class="bento">
+        <article class="card card-xl">
+          <svg class="icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M8 4h12l5 5v19H8z M20 4v5h5 M12 15h9 M12 19h9 M12 23h6"/></svg>
           <h3>Steuern</h3>
-          <p>Wir erstellen Ihre Steuererklärung vollständig und optimieren im legalen Rahmen. Bei Rückfragen des Steueramts sind wir Ihre Ansprechperson.</p>
-          <ul>
-            <li>Steuererklärungen für Privatpersonen</li>
-            <li>Steuererklärungen für GmbH und AG</li>
-            <li>Steuerplanung und Optimierung</li>
-            <li>Prüfung der Veranlagung und Einsprachen</li>
-            <li>Korrespondenz mit dem Steueramt</li>
-          </ul>
+          <p>Steuererklärungen für Privatpersonen und Unternehmen, Steuerplanung im legalen Rahmen, Prüfung der Veranlagung und Vertretung gegenüber dem Steueramt.</p>
+          <ul class="chips"><li>Privatpersonen</li><li>GmbH &amp; AG</li><li>Steuerplanung</li><li>Einsprachen</li></ul>
         </article>
-
-        <article class="panel" role="tabpanel" id="p-buchhaltung" aria-labelledby="t-buchhaltung">
+        <article class="card">
+          <svg class="icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 26h22 M8 22v-8 M14 22V9 M20 22v-5 M26 22V12"/></svg>
           <h3>Buchhaltung</h3>
-          <p>Eine saubere Buchhaltung ist die Grundlage jeder guten Entscheidung. Wir führen sie laufend, termingerecht und nachvollziehbar.</p>
-          <ul>
-            <li>Laufende Finanzbuchhaltung</li>
-            <li>Mehrwertsteuer-Abrechnungen</li>
-            <li>Debitoren und Kreditoren</li>
-            <li>Jahresabschluss nach Obligationenrecht</li>
-            <li>Verständliche Auswertungen</li>
-          </ul>
+          <p>Finanzbuchhaltung, MWST und Jahresabschluss nach OR. Termingerecht und nachvollziehbar.</p>
         </article>
-
-        <article class="panel" role="tabpanel" id="p-liegenschaften" aria-labelledby="t-liegenschaften">
-          <h3>Liegenschaftsbuchhaltung</h3>
-          <p>Für Eigentümer von Mietliegenschaften und Stockwerkeigentümergemeinschaften führen wir die Liegenschaftsbuchhaltung vollständig.</p>
-          <ul>
-            <li>Buchhaltung für Mietliegenschaften</li>
-            <li>Stockwerkeigentum</li>
-            <li>Heiz- und Nebenkostenabrechnungen</li>
-            <li>Erneuerungsfonds</li>
-            <li>Jahresrechnung je Liegenschaft</li>
-          </ul>
+        <article class="card">
+          <svg class="icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 15L16 5l12 10 M7 13v14h18V13 M13 27v-7h6v7"/></svg>
+          <h3>Liegenschafts&shy;buchhaltung</h3>
+          <p>Mietliegenschaften und Stockwerkeigentum: Nebenkosten, Erneuerungsfonds, Jahresrechnung.</p>
         </article>
-
-        <article class="panel" role="tabpanel" id="p-treuhand" aria-labelledby="t-treuhand">
+        <article class="card">
+          <svg class="icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4l10 4v7c0 6-4.5 10.5-10 13C10.5 25.5 6 21 6 15V8z M11.5 16l3 3 6-6"/></svg>
           <h3>Treuhand</h3>
-          <p>Wir übernehmen die laufende Administration Ihres Unternehmens, damit Sie sich auf Ihr Kerngeschäft konzentrieren können.</p>
-          <ul>
-            <li>Lohnadministration</li>
-            <li>Sozialversicherungen (AHV, BVG, UVG)</li>
-            <li>Zahlungsverkehr</li>
-            <li>Korrespondenz mit Behörden</li>
-          </ul>
+          <p>Lohnadministration, Sozialversicherungen und Korrespondenz mit Behörden.</p>
         </article>
-
-        <article class="panel" role="tabpanel" id="p-beratung" aria-labelledby="t-beratung">
+        <article class="card">
+          <svg class="icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 7h20v14H15l-6 5v-5H6z M11 12h10 M11 16h6"/></svg>
           <h3>Beratung</h3>
-          <p>Unternehmerische Entscheidungen brauchen eine solide Grundlage. Wir beraten Sie unabhängig und erklären verständlich.</p>
-          <ul>
-            <li>Wahl und Wechsel der Rechtsform</li>
-            <li>Budget und Liquiditätsplanung</li>
-            <li>Investitions- und Finanzierungsfragen</li>
-            <li>Nachfolgeregelung</li>
-          </ul>
+          <p>Rechtsform, Budget, Liquidität und Nachfolge. Unabhängig und verständlich.</p>
         </article>
-
-        <article class="panel" role="tabpanel" id="p-gruendung" aria-labelledby="t-gruendung">
+        <article class="card card-wide">
+          <svg class="icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 27V13 M16 13c0-5 4-8 9-8 0 5-4 8-9 8z M16 17c0-4-3-6-7-6 0 4 3 6 7 6z M9 27h14"/></svg>
           <h3>Firmengründung</h3>
-          <p>Wir begleiten Sie vom ersten Gespräch bis zum Eintrag im Handelsregister und richten alles von Anfang an richtig ein.</p>
-          <ul>
-            <li>Wahl der passenden Rechtsform</li>
-            <li>Gründungsunterlagen und Statuten</li>
-            <li>Eintrag im Handelsregister</li>
-            <li>Einrichtung von Buchhaltung und MWST</li>
-          </ul>
+          <p>Von der Rechtsform bis zum Handelsregistereintrag, alles von Anfang an richtig eingerichtet.</p>
         </article>
-
-        <article class="panel" role="tabpanel" id="p-liquidation" aria-labelledby="t-liquidation">
+        <article class="card card-wide">
+          <svg class="icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 9h20 M9 9v17h14V9 M13 9V5h6v4 M13 14v8 M19 14v8"/></svg>
           <h3>Liquidation</h3>
-          <p>Wenn ein Kapitel endet, sorgen wir für eine geordnete Auflösung Ihrer Gesellschaft, ohne offene Enden.</p>
-          <ul>
-            <li>Liquidationsbilanz</li>
-            <li>Schuldenruf</li>
-            <li>Steuerliche Schlussabrechnung</li>
-            <li>Löschung im Handelsregister</li>
-          </ul>
+          <p>Liquidationsbilanz, Schuldenruf und Löschung im Handelsregister, geordnet abgeschlossen.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- FÜR WEN -->
-  <section class="block" id="kunden" data-section="kunden">
-    <header class="block-head">
-      <h2>Für wen wir arbeiten</h2>
-    </header>
-    <div class="audiences">
-      <div>
-        <h3>KMU</h3>
-        <p>Buchhaltung, Löhne, MWST und Abschluss für kleine und mittlere Unternehmen.</p>
+  <!-- DIGITAL -->
+  <section class="section section-alt" id="digital">
+    <div class="wrap digital">
+      <div class="digital-text">
+        <h2>Treuhand, wie sie heute sein sollte</h2>
+        <p>Wir verbinden sorgfältige Handarbeit mit digitalen Abläufen. Das spart Ihnen Zeit, Papier und Rückfragen.</p>
+        <ul class="features">
+          <li>
+            <h3>Belege digital übermitteln</h3>
+            <p>Fotografieren, hochladen, erledigt. Kein Ordner mehr, der hin und her geht.</p>
+          </li>
+          <li>
+            <h3>Fristen im Blick</h3>
+            <p>MWST, Steuern und Abschlüsse planen wir voraus. Sie werden rechtzeitig informiert.</p>
+          </li>
+          <li>
+            <h3>Zahlen, die man versteht</h3>
+            <p>Auswertungen in klarer Sprache, damit Sie gute Entscheidungen treffen können.</p>
+          </li>
+        </ul>
       </div>
-      <div>
-        <h3>Selbständige</h3>
-        <p>Einfache Abläufe für Einzelfirmen und Freischaffende, von der Gründung an.</p>
-      </div>
-      <div>
-        <h3>Privatpersonen</h3>
-        <p>Steuererklärung und Steuerberatung, auch bei Liegenschaften oder Wertschriften.</p>
-      </div>
-      <div>
-        <h3>Liegenschaftseigentümer</h3>
-        <p>Liegenschaftsbuchhaltung und Nebenkostenabrechnung für Mietobjekte und Stockwerkeigentum.</p>
+      <div class="digital-visual" aria-hidden="true">
+        <div class="orbit">
+          <div class="orbit-ring r1"></div>
+          <div class="orbit-ring r2"></div>
+          <div class="orbit-ring r3"></div>
+          <img src="assets/favicon-mark.png" alt="" class="orbit-core">
+          <span class="orbit-tag t1">Belege</span>
+          <span class="orbit-tag t2">MWST</span>
+          <span class="orbit-tag t3">Löhne</span>
+          <span class="orbit-tag t4">Steuern</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ABLAUF -->
-  <section class="block" id="ablauf" data-section="ablauf">
-    <header class="block-head">
-      <h2>So beginnt die Zusammenarbeit</h2>
-    </header>
-    <ol class="timeline">
-      <li><span class="tl-no">1</span><h3>Anfrage</h3><p>Sie schreiben uns kurz, worum es geht. Wir melden uns innert eines Arbeitstages.</p></li>
-      <li><span class="tl-no">2</span><h3>Erstgespräch</h3><p>Kostenlos und unverbindlich. Wir klären Ihre Situation und Ihre Ziele.</p></li>
-      <li><span class="tl-no">3</span><h3>Offerte</h3><p>Sie erhalten ein transparentes Angebot mit klar definierten Leistungen.</p></li>
-      <li><span class="tl-no">4</span><h3>Betreuung</h3><p>Wir übernehmen Zahlen, Fristen und Behörden. Sie behalten den Überblick.</p></li>
-    </ol>
-  </section>
+  <section class="section" id="ablauf">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>In vier Schritten zur Klarheit</h2>
+      </div>
+      <ol class="steps">
+        <li><span class="step-no">1</span><h3>Anfrage</h3><p>Schreiben Sie uns kurz, worum es geht. Antwort innert eines Arbeitstages.</p></li>
+        <li><span class="step-no">2</span><h3>Erstgespräch</h3><p>Kostenlos und unverbindlich. Wir klären Situation und Ziele.</p></li>
+        <li><span class="step-no">3</span><h3>Offerte</h3><p>Ein transparentes Angebot mit klar definierten Leistungen.</p></li>
+        <li><span class="step-no">4</span><h3>Klarheit</h3><p>Wir übernehmen Zahlen, Fristen und Behörden. Sie behalten den Überblick.</p></li>
+      </ol>
 
-  <!-- GRUNDSÄTZE -->
-  <section class="block" id="grundsaetze" data-section="grundsaetze">
-    <header class="block-head">
-      <h2>Unsere Grundsätze</h2>
-    </header>
-    <div class="principles">
-      <div><h3>Präzision</h3><p>Sorgfältige Arbeit nach Schweizer Recht, mit doppelter Kontrolle bei jedem Abschluss.</p></div>
-      <div><h3>Diskretion</h3><p>Ihre Unterlagen behandeln wir vertraulich und speichern sie ausschliesslich in der Schweiz.</p></div>
-      <div><h3>Erreichbarkeit</h3><p>Eine feste Ansprechperson und Antworten in verständlicher Sprache.</p></div>
-      <div><h3>Transparenz</h3><p>Klare Offerten und faire Pauschalen. Sie wissen vorher, was es kostet.</p></div>
+      <div class="principles">
+        <div><h3>Präzise</h3><p>Doppelte Kontrolle bei jedem Abschluss.</p></div>
+        <div><h3>Diskret</h3><p>Vertraulich, Daten in der Schweiz.</p></div>
+        <div><h3>Erreichbar</h3><p>Eine feste Ansprechperson.</p></div>
+        <div><h3>Transparent</h3><p>Faire Pauschalen ohne Überraschungen.</p></div>
+      </div>
     </div>
   </section>
 
   <!-- KONTAKT -->
-  <section class="block contact" id="kontakt" data-section="kontakt">
-    <div class="contact-grid">
-      <div class="contact-info">
-        <h2>Erstgespräch vereinbaren</h2>
-        <p>Beschreiben Sie kurz Ihr Anliegen. Das Erstgespräch ist kostenlos und unverbindlich.</p>
-        <dl class="contact-list">
-          <div><dt>E-Mail</dt><dd><a href="mailto:info@clarity-aa.ch">info@clarity-aa.ch</a></dd></div>
-          <div><dt>Adresse</dt><dd>Ruedi-Walter-Strasse 5, 8050 Zürich</dd></div>
-        </dl>
-      </div>
+  <section class="section contact" id="kontakt">
+    <div class="wrap">
+      <div class="contact-card">
+        <div class="contact-info">
+          <h2>Bringen wir Klarheit in Ihre Zahlen</h2>
+          <p>Das Erstgespräch ist kostenlos und unverbindlich.</p>
+          <dl class="contact-list">
+            <div><dt>E-Mail</dt><dd><a href="mailto:info@clarity-aa.ch">info@clarity-aa.ch</a></dd></div>
+            <div><dt>Adresse</dt><dd>Ruedi-Walter-Strasse 5<br>8050 Zürich</dd></div>
+          </dl>
+        </div>
 
-      <form class="contact-form" action="kontakt.php" method="post">
-        <div class="field-row">
-          <label><span>Name</span><input type="text" name="name" required autocomplete="name"></label>
-          <label><span>E-Mail</span><input type="email" name="email" required autocomplete="email"></label>
-        </div>
-        <div class="field-row">
-          <label><span>Telefon <em>optional</em></span><input type="tel" name="telefon" autocomplete="tel"></label>
-          <label><span>Thema</span>
-            <select name="thema">
-              <option>Allgemeine Anfrage</option>
-              <option>Steuern</option>
-              <option>Buchhaltung</option>
-              <option>Liegenschaftsbuchhaltung</option>
-              <option>Treuhand</option>
-              <option>Beratung</option>
-              <option>Firmengründung</option>
-              <option>Liquidation</option>
-            </select>
-          </label>
-        </div>
-        <label><span>Nachricht</span><textarea name="nachricht" rows="5" required></textarea></label>
-        <label class="hp" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-        <label class="consent"><input type="checkbox" name="datenschutz" required> <span>Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und bin einverstanden.</span></label>
-        <button type="submit" class="btn btn-primary">Nachricht senden</button>
-        <p class="form-status" role="status" aria-live="polite"></p>
-      </form>
+        <form class="contact-form" action="kontakt.php" method="post">
+          <div class="field-row">
+            <label><span>Name</span><input type="text" name="name" required autocomplete="name"></label>
+            <label><span>E-Mail</span><input type="email" name="email" required autocomplete="email"></label>
+          </div>
+          <div class="field-row">
+            <label><span>Telefon <em>optional</em></span><input type="tel" name="telefon" autocomplete="tel"></label>
+            <label><span>Thema</span>
+              <select name="thema">
+                <option>Allgemeine Anfrage</option>
+                <option>Steuern</option>
+                <option>Buchhaltung</option>
+                <option>Liegenschaftsbuchhaltung</option>
+                <option>Treuhand</option>
+                <option>Beratung</option>
+                <option>Firmengründung</option>
+                <option>Liquidation</option>
+              </select>
+            </label>
+          </div>
+          <label><span>Nachricht</span><textarea name="nachricht" rows="5" required></textarea></label>
+          <label class="hp" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+          <label class="consent"><input type="checkbox" name="datenschutz" required> <span>Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und bin einverstanden.</span></label>
+          <button type="submit" class="btn btn-light">Nachricht senden</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
     </div>
   </section>
 
-  <footer class="site-footer">
-    <p>© <span id="year">2026</span> Clarity A&amp;A GmbH, Zürich</p>
-    <nav>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <img src="assets/logo-light.png" alt="Clarity A&amp;A GmbH" class="footer-logo" width="900" height="269" loading="lazy">
+    <nav class="footer-nav">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#kontakt">Kontakt</a>
       <a href="impressum.html">Impressum</a>
       <a href="datenschutz.html">Datenschutz</a>
     </nav>
-  </footer>
-</main>
+    <p class="copyright">© <span id="year">2026</span> Clarity A&amp;A GmbH, Zürich</p>
+  </div>
+</footer>
 
-<script src="fog.js?v=12" defer></script>
-<script src="script.js?v=12" defer></script>
+<script src="fog.js?v=13" defer></script>
+<script src="script.js?v=13" defer></script>
 </body>
 </html>
