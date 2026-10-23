@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Clarity A&amp;A GmbH – Treuhand, Steuern &amp; Buchhaltung in Zürich</title>
-  <meta name="description" content="Clarity A&amp;A GmbH in Zürich: Treuhand, Steuererklärungen, Buchhaltung, Liegenschaftsbuchhaltung, Beratung, Firmengründung und Liquidation. Persönlich, präzise und digital.">
-  <meta name="theme-color" content="#232325">
+  <meta name="description" content="Clarity A&amp;A GmbH in Zürich: Treuhand, Steuererklärungen, Buchhaltung, Liegenschaftsbuchhaltung, Beratung, Firmengründung und Liquidation.">
+  <meta name="theme-color" content="#0a1f26">
   <meta property="og:title" content="Clarity A&amp;A GmbH – Treuhand in Zürich">
-  <meta property="og:description" content="Treuhand, Steuern, Buchhaltung, Beratung, Firmengründung und Liquidation.">
+  <meta property="og:description" content="Aus Nebel wird Klarheit: Treuhand, Steuern und Buchhaltung in Zürich.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/logo.png">
+  <meta property="og:image" content="assets/logo-light.png">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="preload" href="assets/fonts/instrument-sans-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
   <script>
     /* Beim Betreten immer ganz oben: bis zur ersten eigenen Eingabe wird jede Verschiebung zurückgesetzt */
     (function(){if('scrollRestoration' in history)history.scrollRestoration='manual';if(location.hash)return;
@@ -23,11 +23,11 @@
     (function(){var d=document.documentElement;d.classList.add('js');
       try{if(sessionStorage.getItem('clarity-fog')||matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('fog-skip');}catch(e){}})();
   </script>
-  <link rel="stylesheet" href="styles.css?v=10">
+  <link rel="stylesheet" href="styles.css?v=11">
 </head>
 <body class="fog-intro">
 
-<!-- Nebel-Intro: Unschärfe + Nebel, der beim Laden aufreisst -->
+<!-- Nebel-Intro -->
 <div class="fog-blur" aria-hidden="true"></div>
 <canvas class="fog-intro-canvas" aria-hidden="true"></canvas>
 
@@ -35,11 +35,11 @@
   <div class="header-bar">
     <a href="#top" class="brand" aria-label="Clarity A&amp;A GmbH – zur Startseite">
       <img src="assets/logo-light.png" alt="Clarity A&amp;A GmbH" class="brand-light" width="900" height="269">
-      <img src="assets/logo.png" alt="" class="brand-dark" width="900" height="269" aria-hidden="true">
+      <img src="assets/logo-dark.png" alt="" class="brand-dark" width="900" height="269" aria-hidden="true">
     </a>
     <nav id="nav" class="nav">
       <a href="#leistungen">Leistungen</a>
-      <a href="#ueber-uns">Über uns</a>
+      <a href="#haltung">Über uns</a>
       <a href="#ablauf">Ablauf</a>
       <a href="#kontakt" class="nav-cta">Erstgespräch</a>
     </nav>
@@ -49,204 +49,140 @@
 
 <main id="top">
 
-  <!-- HERO -->
+  <!-- HERO: das Wort „Klarheit“ schält sich aus dem Nebel -->
   <section class="hero">
     <canvas class="fog-hero-canvas" aria-hidden="true"></canvas>
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <h1>Aus Nebel wird Klarheit.</h1>
-        <p class="lead">Steuern, Buchhaltung und Treuhand wirken oft undurchsichtig. Wir bringen Ordnung hinein, für KMU, Selbständige und Privatpersonen in Zürich.</p>
+    <div class="hero-inner">
+      <p class="hero-kicker">Treuhand, Steuern und Buchhaltung in Zürich</p>
+      <h1 class="hero-word" aria-label="Klarheit">Klarheit<span class="dot">.</span></h1>
+      <div class="hero-foot">
+        <p class="hero-lead">Steuern, Buchhaltung und Treuhand wirken oft wie Nebel. Wir lichten ihn, für KMU, Selbständige und Privatpersonen.</p>
         <div class="hero-actions">
-          <a href="#kontakt" class="btn btn-gold">Kostenloses Erstgespräch</a>
-          <a href="#leistungen" class="btn btn-line">Leistungen ansehen</a>
+          <a href="#kontakt" class="btn btn-amber">Kostenloses Erstgespräch</a>
+          <a href="#leistungen" class="btn btn-ghost">Leistungen ansehen</a>
         </div>
       </div>
-
-      <!-- Animierte Abschluss-Karte -->
-      <div class="ledger" aria-label="Beispiel: Ablauf eines Jahresabschlusses">
-        <div class="ledger-head">
-          <img src="assets/favicon.png" alt="" width="40" height="40">
-          <div>
-            <p class="ledger-title">Jahresabschluss 2026</p>
-            <p class="ledger-sub">Beispiel AG, Zürich</p>
-          </div>
-          <span class="ledger-badge">In Arbeit</span>
-        </div>
-        <ul class="ledger-list">
-          <li><span class="tick"></span><span class="li-text">Belege erfasst</span><span class="li-val">312</span></li>
-          <li><span class="tick"></span><span class="li-text">Bankkonten abgestimmt</span><span class="li-val">3 / 3</span></li>
-          <li><span class="tick"></span><span class="li-text">Mehrwertsteuer Q4 abgerechnet</span><span class="li-val">fristgerecht</span></li>
-          <li><span class="tick"></span><span class="li-text">Bilanz und Erfolgsrechnung</span><span class="li-val">geprüft</span></li>
-          <li><span class="tick"></span><span class="li-text">Steuererklärung eingereicht</span><span class="li-val">Kanton ZH</span></li>
-        </ul>
-        <div class="ledger-foot">
-          <div class="bar"><span></span></div>
-          <p class="ledger-done">Abschluss bereit</p>
-        </div>
-      </div>
+      <p class="hero-hint" aria-hidden="true">Fahren Sie mit der Maus über den Nebel</p>
     </div>
   </section>
 
-  <!-- LEISTUNGEN -->
-  <section class="section" id="leistungen">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Alles rund um Ihre Finanzen, aus einer Hand</h2>
-        <p>Von der Gründung über die laufende Buchhaltung bis zur Auflösung Ihrer Firma, mit einem Ansprechpartner, der Ihr Unternehmen kennt.</p>
+  <!-- LEISTUNGEN: scharf ist, was gerade im Fokus steht -->
+  <section class="focus" id="leistungen">
+    <div class="wrap focus-grid">
+      <div class="focus-intro">
+        <h2>Was wir für Sie klären</h2>
+        <p>Scrollen Sie durch unsere Leistungen. Scharf ist, was gerade im Fokus steht.</p>
+        <a href="#kontakt" class="btn btn-amber">Anfrage senden</a>
       </div>
-
-      <div class="bento">
-        <article class="tile tile-feature">
-          <svg class="icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M7 4h13l5 5v19H7z M20 4v5h5 M11 15h10 M11 19h10 M11 23h6"/></svg>
+      <ol class="focus-list">
+        <li>
           <h3>Steuern</h3>
           <p>Steuererklärungen für Privatpersonen und Unternehmen, Steuerplanung und Optimierung im legalen Rahmen. Wir prüfen Ihre Veranlagung und vertreten Sie gegenüber dem Steueramt.</p>
-          <ul class="chips">
-            <li>Privatpersonen</li><li>Selbständige</li><li>GmbH &amp; AG</li><li>Steuerplanung</li>
-          </ul>
-        </article>
-
-        <article class="tile">
-          <svg class="icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 26h22 M8 22V13 M14 22V8 M20 22v-6 M26 22V11"/></svg>
+        </li>
+        <li>
           <h3>Buchhaltung</h3>
           <p>Laufende Finanzbuchhaltung, Mehrwertsteuer und Jahresabschluss nach Obligationenrecht. Termingerecht und jederzeit nachvollziehbar.</p>
-        </article>
-
-        <article class="tile">
-          <svg class="icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4l10 4v7c0 6-4.5 10.5-10 13C10.5 25.5 6 21 6 15V8z M11.5 16l3 3 6-6"/></svg>
+        </li>
+        <li>
+          <h3>Liegenschaften</h3>
+          <p>Liegenschaftsbuchhaltung für Mietobjekte und Stockwerkeigentum: Mietzinse, Heiz- und Nebenkostenabrechnungen, Erneuerungsfonds und Jahresrechnung.</p>
+        </li>
+        <li>
           <h3>Treuhand</h3>
           <p>Lohnadministration, Sozialversicherungen und Korrespondenz mit Behörden. Wir halten Ihnen den Rücken frei.</p>
-        </article>
-
-        <article class="tile">
-          <svg class="icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 7h20v14H15l-6 5v-5H6z M11 12h10 M11 16h6"/></svg>
+        </li>
+        <li>
           <h3>Beratung</h3>
           <p>Rechtsform, Budget, Liquidität und Nachfolge. Verständlich erklärt, unabhängig beraten.</p>
-        </article>
-
-        <article class="tile">
-          <svg class="icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 27V13 M16 13c0-5 4-8 9-8 0 5-4 8-9 8z M16 17c0-4-3-6-7-6 0 4 3 6 7 6z M9 27h14"/></svg>
-          <h3>Firmengründung</h3>
+        </li>
+        <li>
+          <h3>Gründung</h3>
           <p>Von der Wahl der Rechtsform bis zum Handelsregistereintrag, mit Buchhaltung und MWST von Anfang an richtig eingerichtet.</p>
-        </article>
-
-        <article class="tile tile-property">
-          <svg class="icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 15L16 5l12 10 M7 13v14h18V13 M13 27v-7h6v7"/></svg>
-          <h3>Liegenschaftsbuchhaltung</h3>
-          <p>Buchhaltung für Mietliegenschaften und Stockwerkeigentum: Mietzinse, Heiz- und Nebenkostenabrechnungen, Erneuerungsfonds und Jahresrechnung.</p>
-        </article>
-
-        <article class="tile tile-wide">
-          <svg class="icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 9h20 M9 9v17h14V9 M13 9V5h6v4 M13 14v8 M19 14v8"/></svg>
-          <div>
-            <h3>Liquidation</h3>
-            <p>Wenn ein Kapitel endet, übernehmen wir die geordnete Auflösung Ihrer Gesellschaft: Liquidationsbilanz, Schuldenruf und Löschung im Handelsregister.</p>
-          </div>
-          <a href="#kontakt" class="btn btn-line-dark">Beratung anfragen</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ÜBER UNS -->
-  <section class="section section-tint" id="ueber-uns">
-    <div class="wrap about-grid">
-      <div class="about-text">
-        <h2>Klarheit ist bei uns kein Versprechen, sondern Arbeitsweise</h2>
-        <p>Clarity A&amp;A GmbH ist ein junges Treuhandunternehmen mit Sitz in Zürich. Wir verbinden sorgfältige Treuhandarbeit mit digitalen Abläufen: Belege laden Sie bequem hoch, Auswertungen erhalten Sie verständlich aufbereitet, und für Fragen haben Sie immer dieselbe Ansprechperson.</p>
-      </div>
-      <ul class="values">
-        <li>
-          <h3>Präzise</h3>
-          <p>Sorgfältige Arbeit nach Schweizer Recht, mit doppelter Kontrolle bei jedem Abschluss.</p>
         </li>
         <li>
-          <h3>Diskret</h3>
-          <p>Ihre Unterlagen behandeln wir vertraulich und speichern sie in der Schweiz.</p>
-        </li>
-        <li>
-          <h3>Erreichbar</h3>
-          <p>Antwort innert eines Arbeitstages, in verständlicher Sprache statt Fachjargon.</p>
-        </li>
-        <li>
-          <h3>Transparent</h3>
-          <p>Klare Offerten und faire Pauschalen. Sie wissen vorher, was es kostet.</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ABLAUF -->
-  <section class="section" id="ablauf">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>In vier Schritten zu geordneten Finanzen</h2>
-      </div>
-      <ol class="steps">
-        <li>
-          <span class="step-no">1</span>
-          <h3>Anfrage senden</h3>
-          <p>Schreiben Sie uns kurz, worum es geht. Wir melden uns innert eines Arbeitstages.</p>
-        </li>
-        <li>
-          <span class="step-no">2</span>
-          <h3>Erstgespräch</h3>
-          <p>Kostenlos und unverbindlich. Wir lernen Ihre Situation kennen.</p>
-        </li>
-        <li>
-          <span class="step-no">3</span>
-          <h3>Offerte erhalten</h3>
-          <p>Ein transparentes Angebot, abgestimmt auf Ihren tatsächlichen Bedarf.</p>
-        </li>
-        <li>
-          <span class="step-no">4</span>
-          <h3>Zurücklehnen</h3>
-          <p>Wir kümmern uns um Zahlen, Fristen und Behörden.</p>
+          <h3>Liquidation</h3>
+          <p>Wenn ein Kapitel endet: Liquidationsbilanz, Schuldenruf und Löschung im Handelsregister, geordnet und ohne offene Enden.</p>
         </li>
       </ol>
     </div>
   </section>
 
+  <!-- HALTUNG -->
+  <section class="stance" id="haltung">
+    <div class="wrap">
+      <p class="stance-text">Wir machen aus Belegen, Fristen und Paragrafen etwas, das man versteht.</p>
+      <div class="stance-grid">
+        <div>
+          <h3>Präzise</h3>
+          <p>Sorgfältige Arbeit nach Schweizer Recht, mit doppelter Kontrolle bei jedem Abschluss.</p>
+        </div>
+        <div>
+          <h3>Diskret</h3>
+          <p>Ihre Unterlagen behandeln wir vertraulich und speichern sie in der Schweiz.</p>
+        </div>
+        <div>
+          <h3>Erreichbar</h3>
+          <p>Antwort innert eines Arbeitstages, in verständlicher Sprache statt Fachjargon.</p>
+        </div>
+        <div>
+          <h3>Transparent</h3>
+          <p>Klare Offerten und faire Pauschalen. Sie wissen vorher, was es kostet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABLAUF -->
+  <section class="steps-sec" id="ablauf">
+    <div class="wrap">
+      <h2>Vier Schritte bis zur Klarheit</h2>
+      <ol class="steps">
+        <li><span class="step-no">1</span><h3>Anfrage senden</h3><p>Schreiben Sie uns kurz, worum es geht. Wir melden uns innert eines Arbeitstages.</p></li>
+        <li><span class="step-no">2</span><h3>Erstgespräch</h3><p>Kostenlos und unverbindlich. Wir lernen Ihre Situation kennen.</p></li>
+        <li><span class="step-no">3</span><h3>Offerte erhalten</h3><p>Ein transparentes Angebot, abgestimmt auf Ihren tatsächlichen Bedarf.</p></li>
+        <li><span class="step-no">4</span><h3>Klarheit haben</h3><p>Wir kümmern uns um Zahlen, Fristen und Behörden. Sie behalten den Überblick.</p></li>
+      </ol>
+    </div>
+  </section>
 
   <!-- KONTAKT -->
-  <section class="section" id="kontakt">
-    <div class="wrap">
-      <div class="contact">
-        <div class="contact-info">
-          <h2>Lassen Sie uns über Ihre Zahlen sprechen</h2>
-          <p>Das Erstgespräch ist kostenlos und unverbindlich.</p>
-          <dl class="contact-list">
-            <div><dt>E-Mail</dt><dd><a href="mailto:info@clarity-aa.ch">info@clarity-aa.ch</a></dd></div>
-            <div><dt>Adresse</dt><dd>Ruedi-Walter-Strasse 5<br>8050 Zürich</dd></div>
-          </dl>
-        </div>
-
-        <form class="contact-form" action="kontakt.php" method="post">
-          <div class="field-row">
-            <label><span>Name</span><input type="text" name="name" required autocomplete="name"></label>
-            <label><span>E-Mail</span><input type="email" name="email" required autocomplete="email"></label>
-          </div>
-          <div class="field-row">
-            <label><span>Telefon <em>optional</em></span><input type="tel" name="telefon" autocomplete="tel"></label>
-            <label><span>Thema</span>
-              <select name="thema">
-                <option>Allgemeine Anfrage</option>
-                <option>Steuern</option>
-                <option>Buchhaltung</option>
-                <option>Liegenschaftsbuchhaltung</option>
-                <option>Treuhand</option>
-                <option>Beratung</option>
-                <option>Firmengründung</option>
-                <option>Liquidation</option>
-              </select>
-            </label>
-          </div>
-          <label><span>Nachricht</span><textarea name="nachricht" rows="5" required></textarea></label>
-          <label class="hp" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-          <label class="consent"><input type="checkbox" name="datenschutz" required> <span>Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und bin einverstanden.</span></label>
-          <button type="submit" class="btn btn-gold">Nachricht senden</button>
-          <p class="form-status" role="status" aria-live="polite"></p>
-        </form>
+  <section class="contact" id="kontakt">
+    <div class="wrap contact-grid">
+      <div class="contact-info">
+        <h2>Bringen wir Licht in Ihre Zahlen.</h2>
+        <p>Das Erstgespräch ist kostenlos und unverbindlich.</p>
+        <dl class="contact-list">
+          <div><dt>E-Mail</dt><dd><a href="mailto:info@clarity-aa.ch">info@clarity-aa.ch</a></dd></div>
+          <div><dt>Adresse</dt><dd>Ruedi-Walter-Strasse 5<br>8050 Zürich</dd></div>
+        </dl>
       </div>
+
+      <form class="contact-form" action="kontakt.php" method="post">
+        <div class="field-row">
+          <label><span>Name</span><input type="text" name="name" required autocomplete="name"></label>
+          <label><span>E-Mail</span><input type="email" name="email" required autocomplete="email"></label>
+        </div>
+        <div class="field-row">
+          <label><span>Telefon <em>optional</em></span><input type="tel" name="telefon" autocomplete="tel"></label>
+          <label><span>Thema</span>
+            <select name="thema">
+              <option>Allgemeine Anfrage</option>
+              <option>Steuern</option>
+              <option>Buchhaltung</option>
+              <option>Liegenschaftsbuchhaltung</option>
+              <option>Treuhand</option>
+              <option>Beratung</option>
+              <option>Firmengründung</option>
+              <option>Liquidation</option>
+            </select>
+          </label>
+        </div>
+        <label><span>Nachricht</span><textarea name="nachricht" rows="5" required></textarea></label>
+        <label class="hp" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+        <label class="consent"><input type="checkbox" name="datenschutz" required> <span>Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und bin einverstanden.</span></label>
+        <button type="submit" class="btn btn-dark">Nachricht senden</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 
@@ -254,7 +190,7 @@
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <img src="assets/logo.png" alt="Clarity A&amp;A GmbH" class="footer-logo" width="900" height="269" loading="lazy">
+    <img src="assets/logo-light.png" alt="Clarity A&amp;A GmbH" class="footer-logo" width="900" height="269" loading="lazy">
     <nav class="footer-nav">
       <a href="#leistungen">Leistungen</a>
       <a href="#kontakt">Kontakt</a>
@@ -265,7 +201,7 @@
   </div>
 </footer>
 
-<script src="fog.js?v=10" defer></script>
-<script src="script.js?v=10" defer></script>
+<script src="fog.js?v=11" defer></script>
+<script src="script.js?v=11" defer></script>
 </body>
 </html>

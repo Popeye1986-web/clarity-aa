@@ -13,7 +13,7 @@
       ['wheel','touchstart','keydown','pointerdown','mousedown'].forEach(function(e){addEventListener(e,function(){user=true;},{passive:true,capture:true});});
       addEventListener('scroll',top,{passive:true});addEventListener('DOMContentLoaded',top);addEventListener('load',top);addEventListener('pageshow',top);top();var iv=setInterval(function(){if(user||Date.now()>until)clearInterval(iv);else top();},120);})();
   </script>
-  <link rel="stylesheet" href="styles.css?v=10">
+  <link rel="stylesheet" href="styles.css?v=11">
 </head>
 <body>
 
@@ -21,7 +21,7 @@
   <div class="header-bar">
     <a href="index.html" class="brand" aria-label="Clarity A&amp;A GmbH – zur Startseite">
       <img src="assets/logo-light.png" alt="Clarity A&amp;A GmbH" class="brand-light" width="900" height="269">
-      <img src="assets/logo.png" alt="" class="brand-dark" width="900" height="269" aria-hidden="true">
+      <img src="assets/logo-dark.png" alt="" class="brand-dark" width="900" height="269" aria-hidden="true">
     </a>
     <nav id="nav" class="nav">
       <a href="index.html#leistungen">Leistungen</a>
@@ -75,7 +75,7 @@
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <img src="assets/logo.png" alt="Clarity A&amp;A GmbH" class="footer-logo" width="900" height="269" loading="lazy">
+    <img src="assets/logo-light.png" alt="Clarity A&amp;A GmbH" class="footer-logo" width="900" height="269" loading="lazy">
     <nav class="footer-nav">
       <a href="index.html">Startseite</a>
       <a href="index.html#kontakt">Kontakt</a>
@@ -85,6 +85,6 @@
     <p class="copyright">© <span id="year">2026</span> Clarity A&amp;A GmbH, Zürich</p>
   </div>
 </footer>
-<script src="script.js?v=10" defer></script>
+<script src="script.js?v=11" defer></script>
 </body>
 </html>

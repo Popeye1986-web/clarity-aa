@@ -84,15 +84,26 @@
     else window.addEventListener('clarity:clear', startLedger, { once: true });
   }
 
-  // Überschriften beim Hineinscrollen scharf stellen
-  var heads = document.querySelectorAll('.section h2');
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('sharp'); io.unobserve(e.target); } });
-    }, { threshold: 0.6 });
-    heads.forEach(function (h) { io.observe(h); });
-  } else {
-    heads.forEach(function (h) { h.classList.add('sharp'); });
+  // Leistungen: scharf ist, was in der Bildmitte steht (Fokus wie bei einer Kamera)
+  var items = document.querySelectorAll('.focus-list li');
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (items.length && !still) {
+    var ticking = false;
+    var update = function () {
+      ticking = false;
+      var mid = window.innerHeight * 0.5, range = window.innerHeight * 0.42;
+      items.forEach(function (li) {
+        var r = li.getBoundingClientRect();
+        var d = Math.abs(r.top + r.height / 2 - mid) / range;
+        var f = Math.max(0, Math.min(1, 1 - d));
+        f = f * f * (3 - 2 * f); // weich auslaufen
+        li.style.setProperty('--f', f.toFixed(3));
+      });
+    };
+    var onScrollFocus = function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+    window.addEventListener('scroll', onScrollFocus, { passive: true });
+    window.addEventListener('resize', onScrollFocus);
+    update();
   }
 
   // Jahr im Footer
