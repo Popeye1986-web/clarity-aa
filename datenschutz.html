@@ -14,7 +14,7 @@
       ['wheel','touchstart','keydown','pointerdown','mousedown'].forEach(function(e){addEventListener(e,function(){user=true;},{passive:true,capture:true});});
       addEventListener('scroll',top,{passive:true});addEventListener('DOMContentLoaded',top);addEventListener('load',top);addEventListener('pageshow',top);top();var iv=setInterval(function(){if(user||Date.now()>until)clearInterval(iv);else top();},120);})();
   </script>
-  <link rel="stylesheet" href="styles.css?v=13">
+  <link rel="stylesheet" href="styles.css?v=14">
 </head>
 <body>
 
@@ -57,6 +57,9 @@
       <h2>Kontaktformular und E-Mail</h2>
       <p>Wenn Sie uns über das Kontaktformular oder per E-Mail kontaktieren, verwenden wir Ihre Angaben (Name, E-Mail, optional Telefon, Nachricht) nur, um Ihre Anfrage zu beantworten. Die Daten werden nicht an Dritte weitergegeben und gelöscht, sobald sie nicht mehr benötigt werden, sofern keine gesetzliche Aufbewahrungspflicht besteht.</p>
 
+      <h2>WhatsApp</h2>
+      <p>Sie können uns über einen Link auch per WhatsApp kontaktieren. Erst wenn Sie diesen Link anklicken, wird WhatsApp geöffnet; vorher werden keine Daten an WhatsApp übermittelt. Bei der Nutzung von WhatsApp gelten die Datenschutzbestimmungen der WhatsApp Ireland Limited. Nachrichten, die Sie uns über WhatsApp senden, verwenden wir nur zur Bearbeitung Ihrer Anfrage. Für vertrauliche Unterlagen empfehlen wir die E-Mail oder das Kontaktformular.</p>
+
       <h2>Cookies und Tracking</h2>
       <p>Diese Website verwendet keine Cookies, keine Analyse- oder Tracking-Werkzeuge und keine Social-Media-Plugins.</p>
 
@@ -85,6 +88,7 @@
     <p class="copyright">© <span id="year">2026</span> Clarity A&amp;A GmbH, Zürich</p>
   </div>
 </footer>
-<script src="script.js?v=13" defer></script>
+<script src="whatsapp.js?v=14" defer></script>
+<script src="script.js?v=14" defer></script>
 </body>
 </html>
