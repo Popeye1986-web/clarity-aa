@@ -336,3 +336,30 @@ p { margin: 0 0 1em; }
   .footer-nav { justify-content: flex-start; }
 }
 #kontakt { padding-top: 0; }
+
+/* ============ Nebel → Klarheit ============ */
+.fog-blur, .fog-intro-canvas { display: none; }
+html.js:not(.fog-skip) .fog-blur {
+  display: block; position: fixed; inset: 0; z-index: 200; pointer-events: none;
+  --r: 0%;
+  background: rgba(226, 224, 219, .28);
+  -webkit-backdrop-filter: blur(26px) saturate(.5) brightness(1.12);
+  backdrop-filter: blur(26px) saturate(.5) brightness(1.12);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, transparent var(--r), #000 calc(var(--r) + 22%));
+  mask-image: radial-gradient(circle at 50% 50%, transparent var(--r), #000 calc(var(--r) + 22%));
+  animation: fog-failsafe .6s ease 7s forwards;
+}
+html.js:not(.fog-skip) .fog-intro-canvas {
+  display: block; position: fixed; inset: 0; width: 100%; height: 100%; z-index: 201; pointer-events: none;
+  animation: fog-failsafe .6s ease 7s forwards;
+}
+html.js:not(.fog-skip) body.fog-intro { overflow: hidden; }
+@keyframes fog-failsafe { to { opacity: 0; visibility: hidden; } }
+
+.fog-hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+.hero-grid { z-index: 1; }
+
+/* Überschriften werden beim Hineinscrollen scharf */
+html.js .section h2 { filter: blur(10px); opacity: .25; transition: filter 1.1s var(--ease), opacity 1.1s var(--ease); }
+html.js .section h2.sharp { filter: none; opacity: 1; }
+@media (prefers-reduced-motion: reduce) { html.js .section h2 { filter: none; opacity: 1; } }

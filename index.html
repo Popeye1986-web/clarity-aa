@@ -13,9 +13,17 @@
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/instrument-sans-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <script>
+    (function(){var d=document.documentElement;d.classList.add('js');
+      try{if(sessionStorage.getItem('clarity-fog')||matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('fog-skip');}catch(e){}})();
+  </script>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="fog-intro">
+
+<!-- Nebel-Intro: Unschärfe + Nebel, der beim Laden aufreisst -->
+<div class="fog-blur" aria-hidden="true"></div>
+<canvas class="fog-intro-canvas" aria-hidden="true"></canvas>
 
 <header class="site-header">
   <div class="header-bar">
@@ -37,10 +45,11 @@
 
   <!-- HERO -->
   <section class="hero">
+    <canvas class="fog-hero-canvas" aria-hidden="true"></canvas>
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <h1>Ihre Zahlen in Ordnung. Ihr Kopf frei fürs Geschäft.</h1>
-        <p class="lead">Buchhaltung, Steuern und Treuhand für KMU, Selbständige und Privatpersonen in Zürich. Persönlich betreut, digital organisiert.</p>
+        <h1>Aus Nebel wird Klarheit.</h1>
+        <p class="lead">Steuern, Buchhaltung und Treuhand wirken oft undurchsichtig. Wir bringen Ordnung hinein, für KMU, Selbständige und Privatpersonen in Zürich.</p>
         <div class="hero-actions">
           <a href="#kontakt" class="btn btn-gold">Kostenloses Erstgespräch</a>
           <a href="#leistungen" class="btn btn-line">Leistungen ansehen</a>
@@ -243,6 +252,7 @@
   </div>
 </footer>
 
+<script src="fog.js" defer></script>
 <script src="script.js" defer></script>
 </body>
 </html>

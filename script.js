@@ -25,30 +25,40 @@
     });
   }
 
-  // Abschluss-Karte: Punkte nacheinander abhaken (einmal beim Laden)
+  // Abschluss-Karte: Punkte nacheinander abhaken, sobald der Nebel weg ist
   var ledger = document.querySelector('.ledger');
   if (ledger) {
     var rows = ledger.querySelectorAll('.ledger-list li');
     var bar = ledger.querySelector('.bar span');
     var badge = ledger.querySelector('.ledger-badge');
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    function finish() {
-      ledger.classList.add('done');
-      if (badge) badge.textContent = 'Erledigt';
-    }
-    if (reduce) {
-      rows.forEach(function (r) { r.classList.add('on'); });
-      bar.style.width = '100%';
-      finish();
-    } else {
+    var finish = function () { ledger.classList.add('done'); if (badge) badge.textContent = 'Erledigt'; };
+    var startLedger = function () {
+      if (reduce) {
+        rows.forEach(function (r) { r.classList.add('on'); });
+        bar.style.width = '100%'; finish(); return;
+      }
       rows.forEach(function (r, i) {
         setTimeout(function () {
           r.classList.add('on');
           bar.style.width = ((i + 1) / rows.length * 100) + '%';
           if (i === rows.length - 1) setTimeout(finish, 450);
-        }, 700 + i * 520);
+        }, 250 + i * 480);
       });
-    }
+    };
+    if (window.__clarityClear) startLedger();
+    else window.addEventListener('clarity:clear', startLedger, { once: true });
+  }
+
+  // Überschriften beim Hineinscrollen scharf stellen
+  var heads = document.querySelectorAll('.section h2');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('sharp'); io.unobserve(e.target); } });
+    }, { threshold: 0.6 });
+    heads.forEach(function (h) { io.observe(h); });
+  } else {
+    heads.forEach(function (h) { h.classList.add('sharp'); });
   }
 
   // Jahr im Footer
